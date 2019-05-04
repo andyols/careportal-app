@@ -18,17 +18,30 @@ export default class Navbar extends Component {
 
   render() {
     const { visible } = this.state;
+    const userLoggedIn = false;
 
     return (
       <>
-        <Button.Group>
-          <Button
-            disabled={visible}
-            onClick={this.handleShowClick}
-            icon="bars"
-            labelPosition="right"
+        <Menu borderless inverted size="massive">
+          <Menu.Item
+            as={Link}
+            to="/"
+            name="landing"
+            content="Home"
+            onClick={this.handleHideClick}
           />
-        </Button.Group>
+          {userLoggedIn && (
+            <Menu.Menu position="right">
+              <Menu.Item
+                as={Button}
+                disabled={visible}
+                onClick={this.handleShowClick}
+                icon="bars"
+                size="massive"
+              />
+            </Menu.Menu>
+          )}
+        </Menu>
         <Sidebar
           as={Menu}
           animation="overlay"
@@ -36,51 +49,32 @@ export default class Navbar extends Component {
           inverted
           onHide={this.handleSidebarHide}
           vertical
+          direction="right"
           visible={visible}
-          width="thin"
+          fluid
+          size="massive"
         >
-          <Menu.Item as={Button} icon="times" />
-          <Menu.Item
-            as={Link}
-            to="/"
-            name="landing"
-            content="Landing"
-            onClick={this.handleItemClick}
-          />
           <Menu.Item
             as={Link}
             to="/dashboard"
             name="dashboard"
             content="Dashboard"
-            onClick={this.handleItemClick}
+            onClick={this.handleHideClick}
           />
-          <Menu.Item
-            as={Link}
-            to="/login"
-            name="login"
-            content="Login"
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            as={Link}
-            to="/signup"
-            name="signup"
-            content="Signup"
-            onClick={this.handleItemClick}
-          />
+
           <Menu.Item
             as={Link}
             to="/contributions"
             name="contributions"
             content="Contributions"
-            onClick={this.handleItemClick}
+            onClick={this.handleHideClick}
           />
           <Menu.Item
             as={Link}
             to="/profile"
             name="profile"
             content="Profile"
-            onClick={this.handleItemClick}
+            onClick={this.handleHideClick}
           />
         </Sidebar>
       </>
