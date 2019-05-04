@@ -18,7 +18,7 @@ export default class Navbar extends Component {
 
   render() {
     const { visible } = this.state;
-    const userLoggedIn = false;
+    const { auth } = this.props;
 
     return (
       <>
@@ -30,7 +30,7 @@ export default class Navbar extends Component {
             content="Home"
             onClick={this.handleHideClick}
           />
-          {userLoggedIn && (
+          {auth && (
             <Menu.Menu position="right">
               <Menu.Item
                 as={Button}

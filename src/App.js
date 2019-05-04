@@ -8,16 +8,16 @@ import Signup from "./components/auth/Signup";
 import Dashboard from "./components/dashboard/Dashboard";
 import Contributions from "./components/contributions/Contributions";
 import Profile from "./components/profile/Profile";
-import Navbar from "./components/Navbar/Navbar";
-
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
 class App extends Component {
-  state = { auth: false };
+  state = { auth: true };
   render() {
     const { auth } = this.state;
     return (
       <Router>
-        <Navbar />
-        <Sidebar.Pushable>
+        <Navbar auth={auth} />
+        <Sidebar.Pushable className="App">
           <Sidebar.Pusher>
             <Container>
               <Route exact path="/" component={Landing} />
@@ -44,6 +44,7 @@ class App extends Component {
             </Container>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
+        <Footer />
       </Router>
     );
   }
