@@ -6,10 +6,15 @@ class Dashboard extends Component {
   state = {
     isAdmin: false
   };
+
+  toggleAdminOn = () => this.setState({ isAdmin: true });
+  toggleAdminOff = () => this.setState({ isAdmin: false });
+
   render() {
     const { isAdmin } = this.state;
     return (
       <>
+        <Header content="Welcome, John Doe" />
         {!isAdmin && (
           <Button
             as={Link}
@@ -18,6 +23,8 @@ class Dashboard extends Component {
             fluid
             color="orange"
             content="Make New Contribution"
+            icon="handshake"
+            labelPosition="left"
           />
         )}
         <Header
@@ -127,6 +134,13 @@ class Dashboard extends Component {
             color="orange"
             content="See All"
           />
+          <br />
+          <br />
+          <Button.Group compact basic color="orange">
+            <Button content="User" onClick={this.toggleAdminOff} />
+            <Button.Or text="or" />
+            <Button content="Admin" onClick={this.toggleAdminOn} />
+          </Button.Group>
         </Container>
       </>
     );

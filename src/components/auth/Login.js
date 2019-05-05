@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -28,7 +29,14 @@ class Login extends Component {
           value={this.state.password}
           onChange={this.handleChange}
         />
-        <Button size="massive" fluid color="orange" content="Login" />
+        <Button
+          as={Link}
+          to="/dashboard"
+          size="massive"
+          fluid
+          color="orange"
+          content="Login"
+        />
       </Form>
     );
   }

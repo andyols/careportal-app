@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Header,
-  Modal,
-  Icon,
-  Container,
-  Divider
-} from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import { Button, Header, Modal, Container, Divider } from "semantic-ui-react";
+import BackToDashboard from "../BackToDashboard";
+import "./Contributions.css";
 
 class NewContribution extends Component {
-  state = { modalOpen: false, value: null };
+  state = { modalOpen: true, value: null };
 
   handleModalToggle = () => this.setState({ modalOpen: !this.state.modalOpen });
   handleChange = e => {
@@ -40,19 +36,58 @@ class NewContribution extends Component {
           </Modal.Actions>
         </Modal>
         <Container textAlign="center">
+        <BackToDashboard />
           <Header size="huge" content="Select a Contribution Type" />
-          <Icon
-            name="dollar sign"
+          <Button
+            as={Link}
+            to="/contributions/monetary"
+            content="Monetary"
             color="orange"
+            className="spaced"
+            icon="dollar sign"
+            labelPosition="left"
+            fluid
             size="huge"
-            bordered
-            circular
           />
-          <Icon name="food" color="orange" size="huge" bordered circular />
-          <Icon name="handshake" color="orange" size="huge" bordered circular />
-          <Divider horizontal size>
-            OR
-          </Divider>
+          <Button
+            content="Goods"
+            color="orange"
+            className="spaced"
+            icon="shopping bag"
+            labelPosition="left"
+            size="huge"
+            fluid
+          />
+          <Button
+            content="Volunteer"
+            color="orange"
+            icon="handshake"
+            className="spaced"
+            labelPosition="left"
+            size="huge"
+            fluid
+          />
+          <Divider horizontal>OR</Divider>
+          <Button
+            as={Link}
+            to="/contributions/picture"
+            content="Take a Picture"
+            color="orange"
+            icon="camera"
+            className="spaced"
+            labelPosition="left"
+            size="huge"
+            fluid
+          />
+          <Button
+            content="Tell us"
+            color="orange"
+            icon="microphone"
+            className="spaced"
+            labelPosition="left"
+            size="huge"
+            fluid
+          />
         </Container>
       </>
     );

@@ -6,10 +6,12 @@ import Landing from "./components/landing/Landing";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import Dashboard from "./components/dashboard/Dashboard";
-import List from "./components/contributions/List";
+import ContributionList from "./components/contributions/ContributionList";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import NewContribution from "./components/contributions/NewContribution";
+import Monetary from "./components/contributions/Monetary";
+import Picture from "./components/contributions/Picture";
 class App extends Component {
   state = { auth: true };
   render() {
@@ -32,13 +34,25 @@ class App extends Component {
               <PrivateRoute
                 exact
                 path="/contributions"
-                component={List}
+                component={ContributionList}
                 auth={auth}
               />
               <PrivateRoute
                 exact
                 path="/contributions/new"
                 component={NewContribution}
+                auth={auth}
+              />
+              <PrivateRoute
+                exact
+                path="/contributions/monetary"
+                component={Monetary}
+                auth={auth}
+              />
+              <PrivateRoute
+                exact
+                path="/contributions/picture"
+                component={Picture}
                 auth={auth}
               />
             </Container>

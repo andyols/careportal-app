@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Sidebar, Button, Image } from "semantic-ui-react";
+import {
+  Menu,
+  Sidebar,
+  Button,
+  Image,
+  Segment,
+  Header
+} from "semantic-ui-react";
 
 export default class Navbar extends Component {
   state = { visible: false };
@@ -62,16 +69,52 @@ export default class Navbar extends Component {
             as={Link}
             to="/contributions"
             name="contributions"
-            content="Contributions"
+            content="My Contributions"
             onClick={this.handleHideClick}
           />
+
           <Menu.Item
             as={Link}
-            to="/profile"
-            name="profile"
-            content="Profile"
+            to="/"
+            name="logout"
+            content="Logout"
             onClick={this.handleHideClick}
           />
+          <Segment
+            inverted
+            style={{ position: "absolute", bottom: "0", width: "100%" }}
+          >
+            <Header content="My Circle Admin" />
+            <Button
+              size="large"
+              fluid
+              basic
+              inverted
+              icon="user"
+              content="John Doe"
+              labelPosition="left"
+            />
+            <br />
+            <Button
+              size="large"
+              fluid
+              basic
+              inverted
+              icon="phone"
+              content="512-867-5309"
+              labelPosition="left"
+            />
+            <br />
+            <Button
+              size="large"
+              fluid
+              basic
+              inverted
+              icon="envelope"
+              content="admin@mycareportal.org"
+              labelPosition="left"
+            />
+          </Segment>
         </Sidebar>
       </>
     );
