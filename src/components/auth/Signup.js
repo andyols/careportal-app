@@ -52,9 +52,7 @@ class Signup extends Component {
           value={this.state.password2}
           onChange={this.handleChange}
         />
-        <Button size="massive" fluid color="orange" type="submit">
-          Submit
-        </Button>
+        <Button size="massive" fluid color="orange" content="Sign Up" />
       </Form>
     );
   }

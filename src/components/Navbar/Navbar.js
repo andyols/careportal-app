@@ -22,16 +22,19 @@ export default class Navbar extends Component {
 
     return (
       <>
-        <Menu borderless inverted size="massive">
+        <Menu borderless inverted attached="bottom" size="massive">
           <Menu.Item
             as={Link}
-            to="/"
+            to={auth ? "/dashboard" : "/"}
             name="landing"
             content="Home"
             onClick={this.handleHideClick}
           />
           {auth && (
             <Menu.Menu position="right">
+              <Menu.Item style={{ padding: "0px" }}>
+                <Image src="/img/avatar-placeholder.png" avatar />
+              </Menu.Item>
               <Menu.Item
                 as={Button}
                 disabled={visible}

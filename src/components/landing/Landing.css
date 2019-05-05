@@ -1,7 +1,12 @@
 .landing {
+  margin-top: -14px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: 85vh;
+  position: relative;
+  background: url("/img/landing.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
 }
