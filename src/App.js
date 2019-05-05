@@ -9,6 +9,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import List from "./components/contributions/List";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import NewContribution from "./components/contributions/NewContribution";
 class App extends Component {
   state = { auth: true };
   render() {
@@ -32,6 +33,12 @@ class App extends Component {
                 exact
                 path="/contributions"
                 component={List}
+                auth={auth}
+              />
+              <PrivateRoute
+                exact
+                path="/contributions/new"
+                component={NewContribution}
                 auth={auth}
               />
             </Container>

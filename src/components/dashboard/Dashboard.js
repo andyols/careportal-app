@@ -4,12 +4,25 @@ import { Header, Button, List, Container } from "semantic-ui-react";
 
 class Dashboard extends Component {
   state = {
-    isAdmin: true
+    isAdmin: false
   };
   render() {
+    const { isAdmin } = this.state;
     return (
       <>
-        <Header>My Circle Requests</Header>
+        {!isAdmin && (
+          <Button
+            as={Link}
+            to="/contributions/new"
+            size="large"
+            fluid
+            color="orange"
+            content="Make New Contribution"
+          />
+        )}
+        <Header
+          content={isAdmin ? "My Circle Requests" : "Suggested Contributions"}
+        />
         <List divided relaxed size="huge">
           <List.Item>
             <List.Icon
@@ -59,7 +72,11 @@ class Dashboard extends Component {
           />
         </Container>
         {/* my recent contributions list: link to my contributions page */}
-        <Header>My Circle Contributions</Header>
+        <Header
+          content={
+            isAdmin ? "My Circle Contributions" : "My Recent Contributions"
+          }
+        />
         <List divided relaxed size="huge">
           <List.Item>
             <List.Icon
@@ -69,8 +86,8 @@ class Dashboard extends Component {
               color="green"
             />
             <List.Content>
-              <List.Header as="a">Sofa Needed!</List.Header>
-              <List.Description as="a">Requested 12 mins ago</List.Description>
+              <List.Header as="a">Sofa Delivered!</List.Header>
+              <List.Description as="a">Delivered 39 mins ago</List.Description>
             </List.Content>
           </List.Item>
           <List.Item>
@@ -78,11 +95,11 @@ class Dashboard extends Component {
               name="check circle"
               size="large"
               verticalAlign="middle"
-              color="green"
+              color="yellow"
             />
             <List.Content>
-              <List.Header as="a">Bed Needed!</List.Header>
-              <List.Description as="a">Requested 24 mins ago</List.Description>
+              <List.Header as="a">Bed Contributed</List.Header>
+              <List.Description as="a">Listed 24 mins ago</List.Description>
             </List.Content>
           </List.Item>
           <List.Item>
@@ -90,11 +107,13 @@ class Dashboard extends Component {
               name="check circle"
               size="large"
               verticalAlign="middle"
-              color="green"
+              color="yellow"
             />
             <List.Content>
-              <List.Header as="a">Plumber Services Requested!</List.Header>
-              <List.Description as="a">Requested 38 mins ago</List.Description>
+              <List.Header as="a">Plumber Services</List.Header>
+              <List.Description as="a">
+                Scheduled Tue, 05/07/19
+              </List.Description>
             </List.Content>
           </List.Item>
         </List>
