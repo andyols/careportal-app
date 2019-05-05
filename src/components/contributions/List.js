@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserContributions = () => {
+const List = ({ items }) => {
   return (
     <div>
       <h1>User Contributions Page</h1>
@@ -8,4 +8,4 @@ const UserContributions = () => {
   );
 };
 
-export default UserContributions;
+export default List;

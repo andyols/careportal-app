@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {
-  Menu,
-  Sidebar,
-  Segment,
-  Button,
-  Image,
-  Header
-} from "semantic-ui-react";
+import { Menu, Sidebar, Button, Image } from "semantic-ui-react";
 
 export default class Navbar extends Component {
   state = { visible: false };
