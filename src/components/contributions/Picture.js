@@ -1,49 +1,51 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Modal, Button, Header, Segment, Form, Icon } from "semantic-ui-react";
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { Modal, Button, Header, Segment, Form, Icon } from 'semantic-ui-react'
+import BackToNewContribution from '../BackToNewContribution'
 
-const friendOptions = [
+const categories = [
   {
-    key: "0",
-    text: "Furniture",
-    value: "furniture"
+    key: '0',
+    text: 'Furniture',
+    value: 'furniture'
   },
   {
-    key: "1",
-    text: "Food",
-    value: "food"
+    key: '1',
+    text: 'Food',
+    value: 'food'
   },
   {
-    key: "2",
-    text: "Toys",
-    value: "toys"
+    key: '2',
+    text: 'Toys',
+    value: 'toys'
   },
   {
-    key: "3",
-    text: "Clothing",
-    value: "clothing"
+    key: '3',
+    text: 'Clothing',
+    value: 'clothing'
   },
   {
-    key: "4",
-    text: "Misc",
-    value: "misc"
+    key: '4',
+    text: 'Misc',
+    value: 'misc'
   },
   {
-    key: "5",
-    text: "Supplies",
-    value: "supplies"
+    key: '5',
+    text: 'Supplies',
+    value: 'supplies'
   }
-];
+]
 
 class Picture extends Component {
-  state = { modalOpen: false, description: "" };
+  state = { modalOpen: false, description: '' }
 
-  handleModalToggle = () => this.setState({ modalOpen: !this.state.modalOpen });
-  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+  handleModalToggle = () => this.setState({ modalOpen: !this.state.modalOpen })
+  handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
     return (
       <>
+        <BackToNewContribution />
         <Modal open={this.state.modalOpen} basic size="small">
           <Header
             icon="check circle outline"
@@ -78,7 +80,7 @@ class Picture extends Component {
             placeholder="Category"
             fluid
             selection
-            options={friendOptions}
+            options={categories}
           />
           <Form.Input
             name="description"
@@ -98,8 +100,8 @@ class Picture extends Component {
           />
         </Form>
       </>
-    );
+    )
   }
 }
 
-export default Picture;
+export default Picture

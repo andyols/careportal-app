@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Menu,
   Sidebar,
@@ -7,32 +7,32 @@ import {
   Image,
   Segment,
   Header
-} from "semantic-ui-react";
+} from 'semantic-ui-react'
 
-export default class Navbar extends Component {
-  state = { visible: false };
+class Navbar extends Component {
+  state = { visible: false }
 
-  handleHideClick = () => this.setState({ visible: false });
-  handleShowClick = () => this.setState({ visible: true });
-  handleSidebarHide = () => this.setState({ visible: false });
+  handleHideClick = () => this.setState({ visible: false })
+  handleShowClick = () => this.setState({ visible: true })
+  handleSidebarHide = () => this.setState({ visible: false })
 
   render() {
-    const { visible } = this.state;
-    const { auth } = this.props;
+    const { visible } = this.state
+    const { auth } = this.props
 
     return (
       <>
         <Menu borderless inverted attached="bottom" size="massive">
           <Menu.Item
             as={Link}
-            to={auth ? "/dashboard" : "/"}
+            to={auth ? '/dashboard' : '/'}
             name="landing"
             content="Home"
             onClick={this.handleHideClick}
           />
           {auth && (
             <Menu.Menu position="right">
-              <Menu.Item style={{ padding: "0px" }}>
+              <Menu.Item style={{ padding: '0px' }}>
                 <Image src="/img/avatar-placeholder.png" avatar />
               </Menu.Item>
               <Menu.Item
@@ -82,7 +82,7 @@ export default class Navbar extends Component {
           />
           <Segment
             inverted
-            style={{ position: "absolute", bottom: "0", width: "100%" }}
+            style={{ position: 'absolute', bottom: '0', width: '100%' }}
           >
             <Header content="My Circle Admin" />
             <Button
@@ -117,6 +117,8 @@ export default class Navbar extends Component {
           </Segment>
         </Sidebar>
       </>
-    );
+    )
   }
 }
+
+export default Navbar

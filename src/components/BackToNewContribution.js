@@ -7,7 +7,7 @@ const BackToDashboard = () => {
     <Button
       as={Link}
       to="/dashboard"
-      content="Back To Dashboard"
+      content="Back To Contribution"
       icon="left arrow"
       labelPosition="left"
       color="orange"

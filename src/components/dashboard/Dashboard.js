@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Header, Button, List, Container } from "semantic-ui-react";
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { Header, Button, List, Container } from 'semantic-ui-react'
 
 class Dashboard extends Component {
   state = {
     isAdmin: false
-  };
+  }
 
-  toggleAdminOn = () => this.setState({ isAdmin: true });
-  toggleAdminOff = () => this.setState({ isAdmin: false });
+  toggleAdminOn = () => this.setState({ isAdmin: true })
+  toggleAdminOff = () => this.setState({ isAdmin: false })
 
   render() {
-    const { isAdmin } = this.state;
+    const { isAdmin } = this.state
     return (
       <>
         <Header content="Welcome, John Doe" />
@@ -28,7 +28,7 @@ class Dashboard extends Component {
           />
         )}
         <Header
-          content={isAdmin ? "My Circle Requests" : "Suggested Contributions"}
+          content={isAdmin ? 'My Circle Requests' : 'Suggested Contributions'}
         />
         <List divided relaxed size="huge">
           <List.Item>
@@ -81,7 +81,7 @@ class Dashboard extends Component {
         {/* my recent contributions list: link to my contributions page */}
         <Header
           content={
-            isAdmin ? "My Circle Contributions" : "My Recent Contributions"
+            isAdmin ? 'My Circle Contributions' : 'My Recent Contributions'
           }
         />
         <List divided relaxed size="huge">
@@ -134,6 +134,8 @@ class Dashboard extends Component {
             color="orange"
             content="See All"
           />
+
+          {/* NOT INTENDED FOR PRODUCTION, this is an easy way to switch between admin and user dashboards */}
           <br />
           <br />
           <Button.Group compact basic color="orange">
@@ -143,8 +145,8 @@ class Dashboard extends Component {
           </Button.Group>
         </Container>
       </>
-    );
+    )
   }
 }
 
-export default Dashboard;
+export default Dashboard
