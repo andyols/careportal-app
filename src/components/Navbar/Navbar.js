@@ -12,8 +12,11 @@ import {
 export default class Navbar extends Component {
   state = { visible: false };
 
-  handleHideClick = () => this.setState({ visible: false });
-  handleShowClick = () => this.setState({ visible: true });
+  toggleSideBar = () => {
+    const { visible } = this.state;
+    this.setState({ visible: !visible });
+  };
+
   handleSidebarHide = () => this.setState({ visible: false });
 
   render() {
@@ -22,97 +25,97 @@ export default class Navbar extends Component {
 
     return (
       <>
-        <Menu borderless inverted attached="bottom" size="massive">
+        <Menu borderless inverted attached='bottom' size='massive'>
           <Menu.Item
             as={Link}
             to={auth ? "/dashboard" : "/"}
-            name="landing"
-            content="Home"
-            onClick={this.handleHideClick}
+            name='landing'
+            content='Home'
+            onClick={this.toggleSideBar}
           />
           {auth && (
-            <Menu.Menu position="right">
+            <Menu.Menu position='right'>
               <Menu.Item style={{ padding: "0px" }}>
-                <Image src="/img/avatar-placeholder.png" avatar />
+                <Image src='/img/avatar-placeholder.png' avatar />
               </Menu.Item>
               <Menu.Item
                 as={Button}
                 disabled={visible}
-                onClick={this.handleShowClick}
-                icon="bars"
-                size="massive"
+                onClick={this.toggleSideBar}
+                icon='bars'
+                size='massive'
               />
             </Menu.Menu>
           )}
         </Menu>
         <Sidebar
           as={Menu}
-          animation="overlay"
-          icon="labeled"
+          animation='overlay'
+          icon='labeled'
           inverted
           onHide={this.handleSidebarHide}
           vertical
-          direction="right"
+          direction='right'
           visible={visible}
           fluid
-          size="massive"
+          size='massive'
         >
           <Menu.Item
             as={Link}
-            to="/dashboard"
-            name="dashboard"
-            content="Dashboard"
-            onClick={this.handleHideClick}
+            to='/dashboard'
+            name='dashboard'
+            content='Dashboard'
+            onClick={this.toggleSideBar}
           />
 
           <Menu.Item
             as={Link}
-            to="/contributions"
-            name="contributions"
-            content="My Contributions"
-            onClick={this.handleHideClick}
+            to='/contributions'
+            name='contributions'
+            content='My Contributions'
+            onClick={this.toggleSideBar}
           />
 
           <Menu.Item
             as={Link}
-            to="/"
-            name="logout"
-            content="Logout"
-            onClick={this.handleHideClick}
+            to='/'
+            name='logout'
+            content='Logout'
+            onClick={this.toggleSideBar}
           />
           <Segment
             inverted
             style={{ position: "absolute", bottom: "0", width: "100%" }}
           >
-            <Header content="My Circle Admin" />
+            <Header content='My Circle Admin' />
             <Button
-              size="large"
+              size='large'
               fluid
               basic
               inverted
-              icon="user"
-              content="John Doe"
-              labelPosition="left"
+              icon='user'
+              content='John Doe'
+              labelPosition='left'
             />
             <br />
             <Button
-              size="large"
+              size='large'
               fluid
               basic
               inverted
-              icon="phone"
-              content="512-867-5309"
-              labelPosition="left"
+              icon='phone'
+              content='512-867-5309'
+              labelPosition='left'
             />
             <br />
             <Button
-              size="large"
+              size='large'
               fluid
               basic
               inverted
-              icon="envelope"
-              content="admin@mycareportal.org"
-              labelPosition="left"
+              icon='envelope'
+              content='admin@mycareportal.org'
+              labelPosition='left'
             />
           </Segment>
         </Sidebar>
