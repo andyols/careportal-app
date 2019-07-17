@@ -9,7 +9,7 @@ import {
   Header
 } from "semantic-ui-react";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   state = { visible: false };
 
   toggleSideBar = () => {
@@ -123,3 +123,5 @@ export default class Navbar extends Component {
     );
   }
 }
+
+export default Navbar;

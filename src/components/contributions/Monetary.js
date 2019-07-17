@@ -1,9 +1,11 @@
-import React from "react";
-import { Button, Divider } from "semantic-ui-react";
+import React from 'react'
+import { Button, Divider } from 'semantic-ui-react'
+import BackToNewContribution from '../BackToNewContribution'
 
 const Monetary = () => {
   return (
     <>
+      <BackToNewContribution />
       <Button
         content="Credit Card"
         color="orange"
@@ -51,7 +53,7 @@ const Monetary = () => {
         fluid
       />
     </>
-  );
-};
+  )
+}
 
-export default Monetary;
+export default Monetary
